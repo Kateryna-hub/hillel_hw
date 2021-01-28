@@ -1,5 +1,5 @@
 import random
-
+from pprint import pprint
 
 # 1) Сгенерировать dict() из списка ключей ниже по формуле (key : key* key). keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # ожидаемый результат: {1: 1, 2: 4, 3: 9 …}
@@ -27,14 +27,14 @@ def change_consonant(line):
     vowels = 'aeyuioj'
     result = ''
     for letter in line:
-        if letter not in vowels:
+        if letter not in vowels and letter.isalpha():
             result += random.choice(vowels)
         else:
-            result += letter
+            result += letter.lower()
     return result
 
 
-text = 'hgetry nfgtreju'
+text = 'Khgetry nfgTreju'
 print(change_consonant(text))
 print("=" * 60)
 
@@ -49,7 +49,9 @@ print("=" * 60)
 
 # =======================================================
 # 4.2) вывести 3 наибольших числа из исходного массива
-list_1 = numbers[:]
+list_1 = sorted(numbers[:])
+print(list_1[-3:])
+
 n = 0
 max_numbers = []
 while n < 3:
@@ -68,6 +70,7 @@ while n < 3:
     list_.remove(max_n)
     n += 1
 print(max_numbers)
+
 print("=" * 60)
 
 # =======================================================
@@ -93,6 +96,13 @@ for i in dict_one:
     for j in dict_two:
         if j == i:
             print(j)
+
+print()
+
+for key in dict_one.keys():
+    if key in dict_two.keys():
+        print(key)
+
 print("=" * 60)
 
 # =======================================================
@@ -143,7 +153,7 @@ for dict_ in data:
         value_key.append(list_value)
         result_.update({key: value_key})
 
-print(result_)
+pprint(result_)
 print("=" * 60)
 
 # =======================================================
@@ -162,7 +172,13 @@ def most_frequent(list_var):
     return most_freq
 
 
+def most_frequent_else(list_var):
+    most_freq = max(set(list_var), key=list_var.count)
+    return most_freq
+
+
 print(most_frequent(['a', 'a', 'bi', 'bi', 'bi']))
+print(most_frequent_else(['a', 'a', 'bi', 'bi', 'bi']))
 print("=" * 60)
 
 # =======================================================
@@ -183,7 +199,7 @@ print("=" * 60)
 
 
 def some_function(array, n):
-    if n <= (len(array) - 1):
+    if n < len(array):
         return array[n]**n
     else:
         return -1
@@ -191,7 +207,7 @@ def some_function(array, n):
 
 array = [2, 5, 6, 4, 3, 1, 2]
 print(some_function(array, 4))
-print(some_function(array, 8))
+print(some_function(array, 7))
 print("=" * 60)
 
 
