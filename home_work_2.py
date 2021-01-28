@@ -172,7 +172,7 @@ print("=" * 60)
 num = input('input number: ')
 res = 1
 for i in num:
-    if int(i) != 0:
+    if int(i):
         res *= int(i)
 print(res)
 print("=" * 60)
@@ -183,7 +183,7 @@ print("=" * 60)
 
 
 def some_function(array, n):
-    if n <= len(array):
+    if n <= (len(array) - 1):
         return array[n]**n
     else:
         return -1
@@ -191,7 +191,7 @@ def some_function(array, n):
 
 array = [2, 5, 6, 4, 3, 1, 2]
 print(some_function(array, 4))
-print(some_function(array, 12))
+print(some_function(array, 8))
 print("=" * 60)
 
 
