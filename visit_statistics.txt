@@ -1,0 +1,5 @@
+139.18.150.127 number of visits: 6
+139.18.150.128 number of visits: 7
+139.18.150.126 number of visits: 12
+the most popular day of the week: Wednesday
+the most popular segment of time in a day: 23
